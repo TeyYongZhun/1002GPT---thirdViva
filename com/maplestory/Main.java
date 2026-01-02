@@ -35,10 +35,14 @@ public class Main{
         System.out.println("New Thickness: " + shield1.getThickness());
         
         //test setter for elementType here
-        System.out.print("\nWhich element type you wish for shield 1: ");
-        String inputType = input.next();
+        String inputType="";
+        while (!((inputType.equals("Fire")) || (inputType.equals("Dark")) || (inputType.equals("Light")) || (inputType.equals("Ice")) || (inputType.equals("Neutral")))){
+            System.out.print("\nWhich element type you wish for shield 1 (Fire, Ice, Light, Neutral, Dark): ");
+            inputType = input.next();
+        }
         shield1.setElementType(inputType);
         System.out.println("Resulting Type: " + shield1.getElementType()+"\n");
+        
 
         //Requirement 3: Calculate and print defense power and mana cost for different shields
         //I just run toString method here, as it will auto run calculateManaCost and calculateDefensePower method
