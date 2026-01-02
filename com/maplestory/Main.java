@@ -1,11 +1,12 @@
 package com.maplestory;
+import java.util.Scanner;
 
 public class Main{
     public static void main(String [] args){
+        Scanner input = new Scanner(System.in);
         //Requirement 1: Create multiple MagicShield objects using different constructors  
         MagicShield shield1 = new MagicShield(); //test empty constructor
         MagicShield shield2 = new MagicShield(2.5, 7.0, "Fire"); // test constructor with arguments
-        MagicShield shield3 = new MagicShield(10.0, 2.0, "Dark"); // test constructor with arguments
         System.out.println("Testing Requirement 1: (No-argument constructor & argument constructor)");
         System.out.println("Command of no-argument constructor:\nMagicShield shield1 = new MagicShield();\nSystem.out.println(shield1.toString());\n\nResult:");
         System.out.println(shield1.toString());
@@ -15,27 +16,28 @@ public class Main{
         //Requirement 2: Test setters with valid and invalid values (verify exceptions) 
         //Test setters with valid one
         System.out.println("Testing Requirement 2: (Testing setter)");
-        System.out.println("Command of valid setter: shield1.setRadius(5.0);\nshield1.setThickness(3.0);\n\nResult:");
-        shield1.setRadius(5.0);
-        shield1.setThickness(3.0);
-        System.out.println("New Radius: " + shield1.getRadius());
+        System.out.print("Enter radius u wish for shield 1: ");
+        double inputRadius = input.nextDouble();
+        try{
+            shield1.setRadius(inputRadius);
+        }catch (IllegalArgumentException e){
+            System.out.println(e);
+        }
+        System.out.print("Enter thickness u wish for shield 1: ");
+        double inputThickness = input.nextDouble();
+
+        try{
+            shield1.setThickness(inputThickness);
+        }catch (IllegalArgumentException e){
+            System.out.println(e);
+        }
+        System.out.println("\nNew Radius: " + shield1.getRadius());
         System.out.println("New Thickness: " + shield1.getThickness());
-        //Test setters with invalid one
-        System.out.println("\nCommand of invalid setter:\nshield1.setRadius(-5.0);\nshield1.setThickness(-3.0);\n\nResult:");
-        try{
-            shield1.setRadius(-5.0);
-        }catch (IllegalArgumentException e){
-            System.out.println(e);
-        }
-        try{
-            shield1.setThickness(-3.0);
-        }catch (IllegalArgumentException e){
-            System.out.println(e);
-        }
-        //supposed it will throw an exception here
+        
         //test setter for elementType here
-        System.out.println("\nCommand of setting ElementType to empty (Should become Neutral):\nshield1.setElementType(\"\");\n\nResult:");
-        shield1.setElementType("");
+        System.out.print("\nWhich element type you wish for shield 1: ");
+        String inputType = input.next();
+        shield1.setElementType(inputType);
         System.out.println("Resulting Type: " + shield1.getElementType()+"\n");
 
         //Requirement 3: Calculate and print defense power and mana cost for different shields
@@ -46,6 +48,7 @@ public class Main{
         System.out.println("Mana cost of shield 2: "+shield2.calculateManaCost());
         System.out.println("Note: Shield 2-> Radius = 2.5, Thickness = 7, Coefficient = 1.1 (Fire)");
         System.out.println("\nCommand: \nshield3.calculateDefensePower();\nshield3.calculateManaCost();\n\nResult:");
+        MagicShield shield3 = new MagicShield(10.0, 2.0, "Dark"); // test constructor with arguments
         System.out.println("Defense power of shield 3: "+shield3.calculateDefensePower());
         System.out.println("Mana cost of shield 3: "+shield3.calculateManaCost());
         System.out.println("Note: Shield 3-> Radius = 10, Thickness = 2, Coefficient = 1.4 (Dark)");
