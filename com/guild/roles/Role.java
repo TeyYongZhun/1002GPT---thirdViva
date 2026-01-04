@@ -12,7 +12,7 @@ public class Role {
     // No-argument constructor
     public Role() {
         this.name = "Unknown";
-        this.age = null; // Represents an unknown ag
+        this.age = null; // Represents an unknown age
         this.race = "Human";
         this.mana = 0.00;
     }
