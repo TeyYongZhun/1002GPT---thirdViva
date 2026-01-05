@@ -15,15 +15,14 @@ public class PersonTest {
         //2.Call setAge() with valid and invalid ages and verify that exceptions are thrown for invalid input
         
         student2.setName("Ron");
-        student2.setAge(19);
-        System.out.println("Student 2 updated: "+student2.getName()+" , Age: "+student2.getAge());
 
         // Invalid Age Test (Negative)
         try {
-            student2.setAge(-5);
+            student2.setAge(106);
         } catch (IllegalArgumentException e) {
             System.out.println("Caught Exception: " + e.getMessage());
         }
+        System.out.println("Student 2 updated: "+student2.getName()+" , Age: "+student2.getAge());
         System.out.println();
 
 

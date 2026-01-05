@@ -42,6 +42,8 @@ public class Person{
     public void setAge(int age) {
         if (age < 0) {
             throw new IllegalArgumentException("Age cannot be negative");
+        }else if (age > 100){
+            throw new IllegalArgumentException("Age cannot beyond 100!");
         }
         this.age = age;
     }

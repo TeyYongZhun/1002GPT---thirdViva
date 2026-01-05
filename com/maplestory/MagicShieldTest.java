@@ -52,6 +52,7 @@ public class MagicShieldTest{
         System.out.println("Mana cost of shield 2: "+shield2.calculateManaCost());
         System.out.println("Note: Shield 2-> Radius = 2.5, Thickness = 7, Coefficient = 1.1 (Fire)");
         System.out.println("\nCommand: \nshield3.calculateDefensePower();\nshield3.calculateManaCost();\n\nResult:");
+        
         MagicShield shield3 = new MagicShield(10.0, 2.0, "Dark"); // test constructor with arguments
         System.out.println("Defense power of shield 3: "+shield3.calculateDefensePower());
         System.out.println("Mana cost of shield 3: "+shield3.calculateManaCost());
